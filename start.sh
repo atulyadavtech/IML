@@ -1,17 +1,28 @@
+chmod +x /etc/rc.d/rc.local
+
+
+#Selinux Disabled
+sed -i 's/=enforcing/=disabled/' /etc/selinux/config
+echo 0 >/selinux/enforce
+
+
+#TimeZone Setup
+timedatectl set-timezone Asia/Kolkata
+timedatectl set-ntp yes
+
+
+#Hostname Verfiycation 
+hostnamectl status
+hostname -A;hostname -d;hostname -f;hostname -i;hostname -I
+
 #
-mkdir -p /rhel7.6/{1,2,iml5.0,lustre-2.12.1}
+mkdir -p /rhel7.6/{1,2}
 
-Red Hat Enterprise Linux 7.6 Binary DVD
-SHA-256 Checksum: 60a0be5aeed1f08f2bb7599a578c89ec134b4016cd62a8604b29f15d543a469c
-4.19 GB
-
-RHEL 7.6 Supplementary Binary DVD 
-SHA-256 Checksum: 66b6c5551189f6e46f403636d00ae981209803e12ec0a315511a7a5003cb6e93
-499 MB
 
 ## Repo List
-wget https://raw.githubusercontent.com/atulyadavtech/IML/main/chroma_support.repo
-wget https://raw.githubusercontent.com/atulyadavtech/IML/main/media.repo
+wget https://raw.githubusercontent.com/atulyadavtech/IML/main/chroma_support.repo -O /etc/yum.repos.d/chroma_support.repo
+wget https://raw.githubusercontent.com/atulyadavtech/IML/main/media.repo -O /etc/yum.repos.d/media.repo
+wget https://raw.githubusercontent.com/atulyadavtech/Conf-Files/master/history-sh -O /etc/profile.d/history.sh
 
 yum install yum-plugin-priorities yum-utils -y
 
@@ -20,3 +31,4 @@ sed -n -e "/^\[/h; /priority *=/{ G; s/\n/ /; s/ity=/ity = /; p }" /etc/yum.repo
 yum-config-manager | egrep "^\\[|priority ="
 
 yum install -y python2-iml-manager
+
