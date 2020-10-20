@@ -24,6 +24,10 @@ wget https://raw.githubusercontent.com/atulyadavtech/IML/main/chroma_support.rep
 wget https://raw.githubusercontent.com/atulyadavtech/IML/main/media.repo -O /etc/yum.repos.d/media.repo
 wget https://raw.githubusercontent.com/atulyadavtech/Conf-Files/master/history-sh -O /etc/profile.d/history.sh
 
+
+wget https://github.com/atulyadavtech/IML/releases/download/latest/iml5.0.tar -O /rhel7.6/iml5.0.tar
+wget https://github.com/atulyadavtech/IML/releases/download/latest/lustre-2.12.1.tar -O /rhel7.6/lustre-2.12.1.tar
+
 yum install yum-plugin-priorities yum-utils -y
 
 #Verify the priorites 
