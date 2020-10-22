@@ -48,3 +48,8 @@ iscsiadm -m node -o show
 lsscsi
 
 
+yum install device-mapper-multipath -y
+systemctl enable multipathd
+mpathconf --enable --user_friendly_names y
+systemctl restart  multipathd
+multipath -ll
