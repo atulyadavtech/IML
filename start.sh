@@ -53,3 +53,22 @@ systemctl enable multipathd
 mpathconf --enable --user_friendly_names y
 systemctl restart  multipathd
 multipath -ll
+
+
+defaults {
+polling_interval 10
+path_selector "round-robin 0"
+path_grouping_policy multibus
+path_checker readsector0
+rr_min_io 100
+max_fds 8192
+rr_weight priorities
+failback immediate
+no_path_retry fail
+user_friendly_names yes
+}
+
+
+
+blacklist {
+}
