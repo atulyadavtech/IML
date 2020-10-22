@@ -39,3 +39,12 @@ yum-config-manager | egrep "^\\[|priority ="
 
 yum install -y python2-iml-manager
 
+
+
+yum install iscsi-initiator-utils
+iscsiadm -m discovery -t st -p IP
+iscsiadm -m node --login
+iscsiadm -m node -o show
+lsscsi
+
+
