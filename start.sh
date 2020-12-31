@@ -37,8 +37,8 @@ yum install yum-plugin-priorities yum-utils -y
 sed -n -e "/^\[/h; /priority *=/{ G; s/\n/ /; s/ity=/ity = /; p }" /etc/yum.repos.d/*.repo | sort -k3n
 yum-config-manager | egrep "^\\[|priority ="
 
-yum install -y python2-iml-manager
-
+yum install -y python2-iml-manager ## For Installation
+chroma-config setup  ## For Configuration
 
 
 yum install iscsi-initiator-utils
