@@ -1,12 +1,12 @@
 [dvd1]
-name=$releasever - Media
+name=$releasever - Media1
 baseurl=file:///rhel7.6/1
 gpgcheck=0
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-beta
 
 [dvd2]
-name=$releasever - Media1
+name=$releasever - Media2
 baseurl=file:///rhel7.6/2
 gpgcheck=0
 enabled=1
